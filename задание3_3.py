@@ -14,11 +14,12 @@ class Tomato:
             print('Томат созрел')
         else:
             print('Томат еще не созрел')
-class TomatoBush:
+class TomatoBush(Tomato):
     # Создаем список из объектов класса Tomato
     def __init__(self, num):
+        super().__init__()
         self.tomatoes = [Tomato(index) for index in range(0, num - 1)]
-    def grow_all(self):
+    def grow_all(self,num):
         self.tomatoes = [Tomato(index +1) for index in range(0, num - 1)]
         return self.tomatoes
     def all_are_ripe(self):
@@ -29,6 +30,12 @@ class TomatoBush:
     def five_away_all(self):
         self.tomatoes=[]
         return self.tomatoes
+class Gardener(Tomato):
+    def __init__(self,name):
+        super().__init__(self._index)
+        self.name=name
+        self._plant=self._index
+
 
 
 
